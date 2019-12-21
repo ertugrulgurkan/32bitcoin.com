@@ -14,7 +14,7 @@ class Cryptocurrency extends Component {
         } = this.props.data;
         return (
             <li className={"cryptocurrency " + id} >
-                <img src={"./icons/"+ symbol +"@2x.png"} alt={symbol}></img>
+                {/*<img src={"./icons/"+ symbol +"@2x.png"} alt={symbol}></img>*/}
                 <p className="cryptocurrency-name"><b> {name} ({symbol}) </b></p>
                 <h1>${(+price_usd).toFixed(3)}</h1>
                 <p style={{color: Math.sign(percent_change_1h) === -1 ? "red" : "green"}} >{percent_change_1h}% 1hr</p>
