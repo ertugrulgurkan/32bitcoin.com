@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import '../public';
 import Tickers from './components/Tickers';
 
 function App() {
