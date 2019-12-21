@@ -37,9 +37,9 @@ class Tickers extends Component {
                 percent_change_7d: "0",
             },
             {
-                id: "bitcoin",
-                name: "Bitcoin",
-                symbol: "BTC",
+                id: "ethereum",
+                name: "Ethereum",
+                symbol: "ETH",
                 price_usd: "0",
                 percent_change_1h: "0",
                 percent_change_24h: "0",
