@@ -1,0 +1,61 @@
+.cryptocurrency {
+    padding: 1rem 2rem 2rem;
+    margin: 1rem;
+    border-radius: 0.5rem;
+    min-width: 9rem;
+    border: solid 1px rgba(0, 0, 0, 0.05);
+    flex-grow: 1;
+    flex-basis: 300px;
+}
+.cryptocurrency p {
+    font-size: 20px;
+}
+.cryptocurrency-name {
+    font-size: 30px;
+}
+.bitcoin {
+    background-color: #fbe2c3;
+    border-bottom: solid 4px #ffc400;
+    
+}
+.ethereum {
+    background-color: #c2c9ff;
+    border-bottom: solid 4px #454a75;
+}
+.xrp {
+    background-color: #ffd1d1;
+    border-bottom: solid 4px #e45757;
+}
+
+.litecoin {
+    background-color: #ececec;
+    border-bottom: solid 4px #bebebe;
+}
+.tether {
+    background-color: #a1f867bb;
+    border-bottom: solid 4px #02bd50;
+}
+.binance-coin {
+    background-color: #f5e7c5fd;
+    border-bottom: solid 4px #ffbb00;
+}
+.bitcoin-cash {
+    background-color: #c6e0a8d5;
+    border-bottom: solid 4px #6dc000be;
+}
+.stellar {
+    background-color: #8ebbf5ad;
+    border-bottom: solid 4px #020daaab;
+}
+.tron {
+    background-color: #ddddddcc;
+    border-bottom: solid 4px #928f8f;
+}
+.iota {
+    background-color: #bdbdbd;
+    border-bottom: solid 4px #6b6b6b;
+}
+.monero {
+    background-color: #fbb892c9;
+    border-bottom: solid 4px #e46917;
+}
