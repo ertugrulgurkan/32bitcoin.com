@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import axios from 'axios';
 //import Cryptocurrency component
 
@@ -9,136 +9,239 @@ import './Tickers.css';
 class Tickers extends Component {
 
     fetchCryptocurrencyData() {
-        axios.get("https://api.coinmarketcap.com/v1/ticker/?limit=40")
+        axios.get("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest", {
+            headers: {
+                "X-CMC_PRO_API_KEY": '0fc2d406-49e9-419f-865f-bd4e3f34a5a2 ',
+                "Access-Control-Allow-Origin": "*",
+            }, responseType: 'json'
+        })
             .then(response => {
-                var wanted = ["bitcoin", "ethereum", "litecoin","xrp","tether","stellar","binance-coin","tron","iota","monero","bitcoin-cash",];
-                var result = response.data.filter(currency => wanted.includes(currency.id));
-                this.setState({ data: result });
-                console.log('API call response:', response);
+                var wanted = ["bitcoin", "ethereum", "litecoin", "xrp", "tether", "stellar", "binance-coin", "tron", "iota", "monero", "bitcoin-cash",];
+                console.log('API call response:', response.data.data);
+                var result = response.data.data.filter(currency => wanted.includes(currency.slug));
+                this.setState({data: result});
+
             }).catch((err) => {
-                console.log('API call error:', err);
-            });
+            console.log('API call error:', err);
+        });
     }
 
     componentDidMount() {
         this.fetchCryptocurrencyData();
-        this.interval = setInterval(() => this.fetchCryptocurrencyData, 1 * 1000);
+        this.interval = setInterval(() => this.fetchCryptocurrencyData, 300000);
     }
 
     state = {
         data: [
             {
-                id: "bitcoin",
+                id: 1,
                 name: "Bitcoin",
                 symbol: "BTC",
-                price_usd: "0",
-                percent_change_1h: "0",
-                percent_change_24h: "0",
-                percent_change_7d: "0",
+                slug: "bitcoin",
+                last_updated: "2020-10-31T16:13:02.000Z",
+                quote: {
+                    USD: {
+                        price: 13822.793752577987,
+                        volume_24h: 29754222006.79913,
+                        percent_change_1h: -0.12057471,
+                        percent_change_24h: 2.89542736,
+                        percent_change_7d: 5.19105794,
+                        market_cap: 256144565151.9654,
+                        last_updated: "2020-10-31T16:13:02.000Z"
+                    }
+                }
             },
             {
-                id: "ethereum",
-                name: "Ethereum",
-                symbol: "ETH",
-                price_usd: "0",
-                percent_change_1h: "0",
-                percent_change_24h: "0",
-                percent_change_7d: "0",
+                id: 1,
+                name: "Bitcoin",
+                symbol: "BTC",
+                slug: "ethereum",
+                last_updated: "2020-10-31T16:13:02.000Z",
+                quote: {
+                    USD: {
+                        price: 13822.793752577987,
+                        volume_24h: 29754222006.79913,
+                        percent_change_1h: -0.12057471,
+                        percent_change_24h: 2.89542736,
+                        percent_change_7d: 5.19105794,
+                        market_cap: 256144565151.9654,
+                        last_updated: "2020-10-31T16:13:02.000Z"
+                    }
+                }
             },
             {
-                id: "litecoin",
-                name: "Litecoin",
-                symbol: "LTC",
-                price_usd: "0",
-                percent_change_1h: "0",
-                percent_change_24h: "0",
-                percent_change_7d: "0",
+                id: 1,
+                name: "Bitcoin",
+                symbol: "BTC",
+                slug: "litecoin",
+                last_updated: "2020-10-31T16:13:02.000Z",
+                quote: {
+                    USD: {
+                        price: 13822.793752577987,
+                        volume_24h: 29754222006.79913,
+                        percent_change_1h: -0.12057471,
+                        percent_change_24h: 2.89542736,
+                        percent_change_7d: 5.19105794,
+                        market_cap: 256144565151.9654,
+                        last_updated: "2020-10-31T16:13:02.000Z"
+                    }
+                }
             },
             {
-                id: "xrp",
-                name: "XRP",
-                symbol: "XRP",
-                price_usd: "0",
-                percent_change_1h: "0",
-                percent_change_24h: "0",
-                percent_change_7d: "0",
+                id: 1,
+                name: "Bitcoin",
+                symbol: "BTC",
+                slug: "xrp",
+                last_updated: "2020-10-31T16:13:02.000Z",
+                quote: {
+                    USD: {
+                        price: 13822.793752577987,
+                        volume_24h: 29754222006.79913,
+                        percent_change_1h: -0.12057471,
+                        percent_change_24h: 2.89542736,
+                        percent_change_7d: 5.19105794,
+                        market_cap: 256144565151.9654,
+                        last_updated: "2020-10-31T16:13:02.000Z"
+                    }
+                }
             },
             {
-                id: "tether",
-                name: "Tether",
-                symbol: "USDT",
-                price_usd: "0",
-                percent_change_1h: "0",
-                percent_change_24h: "0",
-                percent_change_7d: "0",
-            },
-            
-            {
-                id: "stellar",
-                name: "Stellar",
-                symbol: "XLM",
-                price_usd: "0",
-                percent_change_1h: "0",
-                percent_change_24h: "0",
-                percent_change_7d: "0",
-            },
-
-            {
-                id: "binance-coin",
-                name: "Binance Coin",
-                symbol: "BNB",
-                price_usd: "0",
-                percent_change_1h: "0",
-                percent_change_24h: "0",
-                percent_change_7d: "0",
+                id: 1,
+                name: "Bitcoin",
+                symbol: "BTC",
+                slug: "tether",
+                last_updated: "2020-10-31T16:13:02.000Z",
+                quote: {
+                    USD: {
+                        price: 13822.793752577987,
+                        volume_24h: 29754222006.79913,
+                        percent_change_1h: -0.12057471,
+                        percent_change_24h: 2.89542736,
+                        percent_change_7d: 5.19105794,
+                        market_cap: 256144565151.9654,
+                        last_updated: "2020-10-31T16:13:02.000Z"
+                    }
+                }
             },
             {
-                id: "iota",
-                name: "IOTA",
-                symbol: "MIOTA",
-                price_usd: "0",
-                percent_change_1h: "0",
-                percent_change_24h: "0",
-                percent_change_7d: "0",
+                id: 1,
+                name: "Bitcoin",
+                symbol: "BTC",
+                slug: "stellar",
+                last_updated: "2020-10-31T16:13:02.000Z",
+                quote: {
+                    USD: {
+                        price: 13822.793752577987,
+                        volume_24h: 29754222006.79913,
+                        percent_change_1h: -0.12057471,
+                        percent_change_24h: 2.89542736,
+                        percent_change_7d: 5.19105794,
+                        market_cap: 256144565151.9654,
+                        last_updated: "2020-10-31T16:13:02.000Z"
+                    }
+                }
             },
             {
-                id: "tron",
-                name: "TRON",
-                symbol: "TRX",
-                price_usd: "0",
-                percent_change_1h: "0",
-                percent_change_24h: "0",
-                percent_change_7d: "0",
+                id: 1,
+                name: "Bitcoin",
+                symbol: "BTC",
+                slug: "binance-coin",
+                last_updated: "2020-10-31T16:13:02.000Z",
+                quote: {
+                    USD: {
+                        price: 13822.793752577987,
+                        volume_24h: 29754222006.79913,
+                        percent_change_1h: -0.12057471,
+                        percent_change_24h: 2.89542736,
+                        percent_change_7d: 5.19105794,
+                        market_cap: 256144565151.9654,
+                        last_updated: "2020-10-31T16:13:02.000Z"
+                    }
+                }
             },
             {
-                id: "bitcoin-cash",
-                name: "Bitcoin Cash",
-                symbol: "BCH",
-                price_usd: "0",
-                percent_change_1h: "0",
-                percent_change_24h: "0",
-                percent_change_7d: "0",
+                id: 1,
+                name: "Bitcoin",
+                symbol: "BTC",
+                slug: "tron",
+                last_updated: "2020-10-31T16:13:02.000Z",
+                quote: {
+                    USD: {
+                        price: 13822.793752577987,
+                        volume_24h: 29754222006.79913,
+                        percent_change_1h: -0.12057471,
+                        percent_change_24h: 2.89542736,
+                        percent_change_7d: 5.19105794,
+                        market_cap: 256144565151.9654,
+                        last_updated: "2020-10-31T16:13:02.000Z"
+                    }
+                }
             },
             {
-                id: "monero",
-                name: "Monero",
-                symbol: "XMR",
-                price_usd: "0",
-                percent_change_1h: "0",
-                percent_change_24h: "0",
-                percent_change_7d: "0",
+                id: 1,
+                name: "Bitcoin",
+                symbol: "BTC",
+                slug: "iota",
+                last_updated: "2020-10-31T16:13:02.000Z",
+                quote: {
+                    USD: {
+                        price: 13822.793752577987,
+                        volume_24h: 29754222006.79913,
+                        percent_change_1h: -0.12057471,
+                        percent_change_24h: 2.89542736,
+                        percent_change_7d: 5.19105794,
+                        market_cap: 256144565151.9654,
+                        last_updated: "2020-10-31T16:13:02.000Z"
+                    }
+                }
+            },
+            {
+                id: 1,
+                name: "Bitcoin",
+                symbol: "BTC",
+                slug: "monero",
+                last_updated: "2020-10-31T16:13:02.000Z",
+                quote: {
+                    USD: {
+                        price: 13822.793752577987,
+                        volume_24h: 29754222006.79913,
+                        percent_change_1h: -0.12057471,
+                        percent_change_24h: 2.89542736,
+                        percent_change_7d: 5.19105794,
+                        market_cap: 256144565151.9654,
+                        last_updated: "2020-10-31T16:13:02.000Z"
+                    }
+                }
+            },
+            {
+                id: 1,
+                name: "Bitcoin",
+                symbol: "BTC",
+                slug: "bitcoin-cash",
+                last_updated: "2020-10-31T16:13:02.000Z",
+                quote: {
+                    USD: {
+                        price: 13822.793752577987,
+                        volume_24h: 29754222006.79913,
+                        percent_change_1h: -0.12057471,
+                        percent_change_24h: 2.89542736,
+                        percent_change_7d: 5.19105794,
+                        market_cap: 256144565151.9654,
+                        last_updated: "2020-10-31T16:13:02.000Z"
+                    }
+                }
             }
         ]
     }
 
     render() {
+
         var tickers = this.state.data.map((currency) =>
-        <Cryptocurrency data={currency} key={currency.id}/>
+            <Cryptocurrency data={currency} key={currency.slug}/>
         );
-        console.log(tickers);
         return (
             <div className="tickers-containers">
-                <ul className="tickers">{tickers}</ul>                
+                <ul className="tickers">{tickers}</ul>
             </div>
         );
     }
