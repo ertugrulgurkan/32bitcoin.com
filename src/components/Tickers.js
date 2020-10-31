@@ -13,12 +13,14 @@ class Tickers extends Component {
             headers: {
                 "X-CMC_PRO_API_KEY": '0fc2d406-49e9-419f-865f-bd4e3f34a5a2 ',
                 "Access-Control-Allow-Origin": "*",
+                'Access-Control-Allow-Credentials':true,
             }, responseType: 'json'
         })
             .then(response => {
                 var wanted = ["bitcoin", "ethereum", "litecoin", "xrp", "tether", "stellar", "binance-coin", "tron", "iota", "monero", "bitcoin-cash",];
                 console.log('API call response:', response.data.data);
                 var result = response.data.data.filter(currency => wanted.includes(currency.slug));
+                console.log('API call RESULT!!!:', result);
                 this.setState({data: result});
 
             }).catch((err) => {
@@ -239,6 +241,7 @@ class Tickers extends Component {
         var tickers = this.state.data.map((currency) =>
             <Cryptocurrency data={currency} key={currency.slug}/>
         );
+        console.log(tickers);
         return (
             <div className="tickers-containers">
                 <ul className="tickers">{tickers}</ul>
