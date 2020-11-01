@@ -4,18 +4,32 @@ import './Cryptocurrency.css';
 class Cryptocurrency extends Component {
     render() {
         var {
-            id,
-            name,
-            symbol
+            PRICE,
+            FROMSYMBOL,
+            CHANGEPCTHOUR,
+            CHANGEPCTDAY,
         } = this.props.data;
+
+        var name = { 
+            BTC : "Bitcoin",
+            ETH : "Etherium",
+            USDT: "Tether",
+            XRP: "Ripple",
+            BCH: "Bitcoin Cash",
+            BNB: "Binance Coin",
+            LTC: "Litecoin",
+            XMR: "Monero",
+            TRX: "TRON",
+            XLM: "Stellar",
+            MIOTA: "IOTA"
+        }
         return (
-            <li className={"cryptocurrency " + id} >
-                {<img src={"./icons/"+ symbol.toLowerCase() +"@2x.png"} alt={symbol}></img>}
-                <p className="cryptocurrency-name"><b> {name} ({symbol}) </b></p>
-                <h1>${(+this.props.data.quote.USD.price).toFixed(3)}</h1>
-                <p style={{color: Math.sign(this.props.data.quote.USD.percent_change_1h) === -1 ? "red" : "green"}} >${(+this.props.data.quote.USD.percent_change_1h).toFixed(2)}% 1hr</p>
-                <p style={{color: Math.sign(this.props.data.quote.USD.percent_change_24h) === -1 ? "red" : "green"}}>${(+this.props.data.quote.USD.percent_change_24h).toFixed(2)}% 24hr</p>
-                <p style={{color: Math.sign(this.props.data.quote.USD.percent_change_7d) === -1 ? "red" : "green"}}>${(+this.props.data.quote.USD.percent_change_7d).toFixed(2)}% 7days</p>
+            <li className={"cryptocurrency " + FROMSYMBOL.toLowerCase()} >
+                {<img src={"./icons/"+ FROMSYMBOL.toLowerCase() +"@2x.png"} alt={FROMSYMBOL}></img>}
+                <p className="cryptocurrency-name"><b> {name[FROMSYMBOL]}  ({FROMSYMBOL}) </b></p>
+                <h1>${(+PRICE).toFixed(3)}</h1>
+                <p style={{color: Math.sign(CHANGEPCTHOUR) === -1 ? "red" : "green"}} >${(+CHANGEPCTHOUR).toFixed(2)}% 1hr</p>
+                <p style={{color: Math.sign(CHANGEPCTDAY) === -1 ? "red" : "green"}}>${(+CHANGEPCTDAY).toFixed(2)}% 24hr</p>
 
             </li>
         )

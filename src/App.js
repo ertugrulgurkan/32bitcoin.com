@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <div className="App-header">
-        <h2>32 BitCoin</h2>
+        <h2>32Bitcoin.com</h2>
       </div>
       <Tickers/>
     </div>
