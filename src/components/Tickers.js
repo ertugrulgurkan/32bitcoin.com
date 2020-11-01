@@ -10,14 +10,7 @@ class Tickers extends Component {
 
     fetchCryptocurrencyData() {
 
-        axios.get("https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,USDT,XRP,BCH,BNB,LTC,XMR,TRX,XLM,MIOTA&tsyms=USD", {
-            headers: {
-                "api_key": '725b48743245acfa1cc35a4d020ccc89a3b84fa35cd89e0271247125f3a6bff7',
-                "Access-Control-Allow-Origin": "*",
-                "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
-                "Access-Control-Allow-Credentials": true,
-            }, responseType: 'json'
-        })
+        axios.get("https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,USDT,XRP,BCH,BNB,LTC,XMR,TRX,XLM,MIOTA&tsyms=USD&api_key=725b48743245acfa1cc35a4d020ccc89a3b84fa35cd89e0271247125f3a6bff7")
             .then(response => {
                 var result = response.data.RAW;
                 console.log('API call response:', result);
