@@ -17,6 +17,31 @@
     border-bottom: solid 6px #ffc400;
     border-top: solid 6px #ffc400;
 }
+.bitcoin {
+    border-bottom: solid 6px #f2d061;
+    border-top: solid 6px #f2d061;
+    background-color: #ffc400;
+}
+.etherium {
+    border-bottom: solid 6px #7178b8;
+    border-top: solid 6px #7178b8;
+    background-color: #454a75;
+}
+.kriptopara{
+    border-bottom: solid 6px #7178b8;
+    border-top: solid 6px #7178b8;
+    background-color: #454a75;
+}
+.nasil {
+    border-bottom: solid 6px #e38c53;
+    border-top: solid 6px #e38c53;
+    background-color: #e46917;
+}
+.haber {
+    border-bottom: solid 6px #6dc000be;
+    border-top: solid 6px #6dc000be;
+    background-color: #6dc000be;
+}
 .eth {
     border-bottom: solid 6px #454a75;
     border-top: solid 6px #454a75;
@@ -58,3 +83,11 @@
     border-bottom: solid 6px #e46917;
     border-top: solid 6px #e46917;
 }
+
+a:link, a:visited {
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
